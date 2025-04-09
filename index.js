@@ -50,35 +50,29 @@ app.get('/update-cobj', (req, res) => {
 
 // * Code for Route 3 goes here
 
-/** 
-* * This is sample code to give you a reference for how you should structure your calls. 
-
-* * App.get sample
-
-* * App.post sample
-app.post('/update', async (req, res) => {
-    const update = {
+app.post('/update-cobj', async (req, res) => {
+    const create_patients = {
         properties: {
-            "favorite_book": req.body.newVal
+            "name": req.body.name,
+            "address_patient": req.body.address,
+            "gender": req.body.gender
         }
     }
 
-    const email = req.query.email;
-    const updateContact = `https://api.hubapi.com/crm/v3/objects/contacts/${email}?idProperty=email`;
+    const createPatient = 'https://api.hubspot.com/crm/v3/objects/patients';
     const headers = {
         Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
         'Content-Type': 'application/json'
     };
 
     try { 
-        await axios.patch(updateContact, update, { headers } );
+        await axios.post(createPatient, create_patients, { headers } );
         res.redirect('back');
     } catch(err) {
         console.error(err);
     }
 
 });
-*/
 
 
 // * Localhost
