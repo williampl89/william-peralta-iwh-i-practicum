@@ -1,0 +1,23 @@
+//- ** This is a sample of a pug template and how it uses the data passed to it from index.js.
+
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+
+    body#main-body
+        h1 #{title}
+        a( href="/update-cobj") Add to this table
+        
+        table 
+            tr
+                th Name
+                th Patient Address
+                th Patient age
+            each patient in data 
+                tr
+                    td= patient.properties.name
+                    td= patient.properties.address_patient
+                    td= patient.properties.gender
