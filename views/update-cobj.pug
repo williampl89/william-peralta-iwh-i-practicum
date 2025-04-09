@@ -1,0 +1,24 @@
+doctype html 
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body#main-body
+        h1 Add a new Patient
+        form(action="/update-cobj" method="post")
+            label(for="name") Name:
+            input(type="text" name="name")
+            label(for="address") Address:
+            input(type="text" name="address")
+            label Gender:
+            .gender-group
+                label.gender-option(for="gender-m")
+                    input(type="radio" name="gender" id="gender-m" value="M")
+                    | Male
+                label.gender-option(for="gender-f")
+                    input(type="radio" name="gender" id="gender-f" value="F")
+                    | Female
+            input(type="submit" value="Submit")
+        <br><br>
+        a( href="/") Back to home
